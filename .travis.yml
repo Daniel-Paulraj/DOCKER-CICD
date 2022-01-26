@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t 1nt3ll1g3nt/DOCKER-CICD -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true 1nt3ll1g3nt/DOCKER-CICD npm run test
